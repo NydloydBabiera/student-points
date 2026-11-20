@@ -1,0 +1,19 @@
+﻿drop table if exists students;
+CREATE TABLE students (
+	studentId SERIAL PRIMARY KEY,
+	firstName varchar(255),
+	middleName varchar(255),
+	lastName varchar(255),
+	gradeLevel varchar(255),
+	levelSection varchar(255),
+		rfidNumber varchar(255),
+	studetIdNumber varchar(255)
+);
+
+drop table if exists studentPoints;
+CREATE TABLE studentPoints(
+	studentPointsId SERIAL PRIMARY KEY,
+	studentId BIGINT REFERENCES students(studentId),
+	points decimal(12,8)
+
+)

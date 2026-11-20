@@ -144,5 +144,8 @@
   <ItemGroup>
     <None Include="Resources\bg.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="dbCommand.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
