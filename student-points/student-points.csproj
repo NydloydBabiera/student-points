@@ -111,6 +111,12 @@
     <Compile Include="GlobalVariables.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StudentPoints.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentPoints.Designer.cs">
+      <DependentUpon>StudentPoints.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddStudent.resx">
       <DependentUpon>AddStudent.cs</DependentUpon>
     </EmbeddedResource>
@@ -127,6 +133,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="StudentPoints.resx">
+      <DependentUpon>StudentPoints.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

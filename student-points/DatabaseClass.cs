@@ -309,6 +309,41 @@ namespace student_points
      
             }
 
+            public void LoadStudentPoints(DataGridView gridView)
+            {
+                using (var conn = new NpgsqlConnection(_connStr))
+                {
+                    try
+                    {
+                        conn.Open();
+
+                        string query = $"select " +
+                        "s.studentid, " +
+                        "CONCAT(s.firstname, ' ', s.middlename, ' ', s.lastname) as name, " +
+                        "s.gradeLevel, " +
+                        "s.levelSection, " +
+                        "s.studetidnumber, " +
+                        "CONCAT(TO_CHAR(COALESCE(SUM(sp.points), 0), 'FM999999999990.00'), ' points') AS points " +
+                        "from students s " +
+                        "left " +
+                        "join studentpoints sp on sp.studentid = s.studentid " +
+                        "group by s.studentid ";
+                        using (var da = new NpgsqlDataAdapter(query, conn))
+                        {
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+
+                            gridView.DataSource = dt;
+                            gridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"❌ Error loading data:\n{ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+
             public (int studentId, string name, string gradeLevel, string levelSection, string studentIdNumber, string points)? GetStudentInformation(string rfidNumber)
             {
                 using (var conn = new NpgsqlConnection(_connStr))
