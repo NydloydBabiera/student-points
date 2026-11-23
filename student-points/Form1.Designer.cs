@@ -38,6 +38,7 @@
             this.txtrfidNumber = new System.Windows.Forms.TextBox();
             this.txtWeight = new System.Windows.Forms.TextBox();
             this.txtTotalPoints = new System.Windows.Forms.TextBox();
+            this.btnViewStudentPoints = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -137,6 +138,21 @@
             this.txtTotalPoints.Size = new System.Drawing.Size(401, 62);
             this.txtTotalPoints.TabIndex = 10;
             // 
+            // btnViewStudentPoints
+            // 
+            this.btnViewStudentPoints.BackColor = System.Drawing.Color.Transparent;
+            this.btnViewStudentPoints.FlatAppearance.BorderSize = 2;
+            this.btnViewStudentPoints.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewStudentPoints.Font = new System.Drawing.Font("Arial Rounded MT Bold", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewStudentPoints.ForeColor = System.Drawing.Color.LimeGreen;
+            this.btnViewStudentPoints.Location = new System.Drawing.Point(190, 790);
+            this.btnViewStudentPoints.Name = "btnViewStudentPoints";
+            this.btnViewStudentPoints.Size = new System.Drawing.Size(424, 62);
+            this.btnViewStudentPoints.TabIndex = 11;
+            this.btnViewStudentPoints.Text = "STUDENT POINTS";
+            this.btnViewStudentPoints.UseVisualStyleBackColor = false;
+            this.btnViewStudentPoints.Click += new System.EventHandler(this.btnViewStudentPoints_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -144,6 +160,7 @@
             this.BackgroundImage = global::student_points.Properties.Resources.bg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1449, 944);
+            this.Controls.Add(this.btnViewStudentPoints);
             this.Controls.Add(this.txtTotalPoints);
             this.Controls.Add(this.txtWeight);
             this.Controls.Add(this.txtrfidNumber);
@@ -177,6 +194,7 @@
         private System.Windows.Forms.TextBox txtrfidNumber;
         private System.Windows.Forms.TextBox txtWeight;
         private System.Windows.Forms.TextBox txtTotalPoints;
+        private System.Windows.Forms.Button btnViewStudentPoints;
     }
 }
 

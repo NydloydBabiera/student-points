@@ -229,5 +229,13 @@ namespace student_points
                 //label1.Text = "Database lookup failed. Please scan again.";
             }
         }
+
+        private void btnViewStudentPoints_Click(object sender, EventArgs e)
+        {
+            using (var studentPoints = new StudentPoints())
+            {
+                studentPoints.ShowDialog(this);
+            }
+        }
     }
 }

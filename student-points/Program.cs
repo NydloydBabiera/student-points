@@ -16,7 +16,7 @@ namespace student_points
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StudentPoints());
+            Application.Run(new MainForm());
         }
     }
 }
