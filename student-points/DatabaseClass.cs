@@ -309,22 +309,24 @@ namespace student_points
      
             }
 
-            public (string name, string gradeLevel, string levelSection, string studentIdNumber, string points)? GetStudentInformation(string rfidNumber)
+            public (int studentId, string name, string gradeLevel, string levelSection, string studentIdNumber, string points)? GetStudentInformation(string rfidNumber)
             {
                 using (var conn = new NpgsqlConnection(_connStr))
                 {
                     conn.Open();
                     using (var cmd = new NpgsqlCommand(
-                        "select "+
+                        "select " +
+                        "s.studentid, " +
                         "CONCAT(s.firstname, ' ', s.middlename, ' ', s.lastname) as name, "+
                         "s.gradeLevel, "+
                         "s.levelSection, "+
                         "s.studetidnumber, "+
-                        "CONCAT(COALESCE(sp.points, 0), ' ', 'points') "+
+                        "CONCAT(TO_CHAR(COALESCE(SUM(sp.points), 0), 'FM999999999990.00'), ' points') AS points " +
                         "from students s "+
                         "left "+
                         "join studentpoints sp on sp.studentid = s.studentid "+
-                        "where s.rfidnumber = @rfidNumber ", conn))
+                        "where s.rfidnumber = @rfidNumber " +
+                        "group by s.studentid ", conn))
                     {
                         cmd.Parameters.AddWithValue("@rfidNumber", rfidNumber);
 
@@ -332,7 +334,7 @@ namespace student_points
                         {
                             if (rdr.Read())
                             {
-                                return (rdr.GetString(0), rdr.GetString(1), rdr.GetString(2), rdr.GetString(3), rdr.GetString(4));
+                                return (rdr.GetInt32(0), rdr.GetString(1), rdr.GetString(2), rdr.GetString(3), rdr.GetString(4), rdr.GetString(5));
                             }
                         }
                     }

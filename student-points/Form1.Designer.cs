@@ -35,17 +35,20 @@
             this.txtStudentIdNo = new System.Windows.Forms.TextBox();
             this.txtPoints = new System.Windows.Forms.TextBox();
             this.btnAddStudent = new System.Windows.Forms.Button();
+            this.txtrfidNumber = new System.Windows.Forms.TextBox();
+            this.txtWeight = new System.Windows.Forms.TextBox();
+            this.txtTotalPoints = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Green;
-            this.label1.Location = new System.Drawing.Point(150, 262);
+            this.label1.Location = new System.Drawing.Point(8, 252);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1049, 93);
+            this.label1.Size = new System.Drawing.Size(1438, 93);
             this.label1.TabIndex = 0;
             this.label1.Text = "SCAN YOUR ID TO START";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -53,7 +56,7 @@
             // txtStudentName
             // 
             this.txtStudentName.Font = new System.Drawing.Font("Arial Rounded MT Bold", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStudentName.Location = new System.Drawing.Point(166, 358);
+            this.txtStudentName.Location = new System.Drawing.Point(166, 416);
             this.txtStudentName.Name = "txtStudentName";
             this.txtStudentName.Size = new System.Drawing.Size(1164, 62);
             this.txtStudentName.TabIndex = 1;
@@ -63,7 +66,7 @@
             // txtGradeLevel
             // 
             this.txtGradeLevel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGradeLevel.Location = new System.Drawing.Point(166, 440);
+            this.txtGradeLevel.Location = new System.Drawing.Point(166, 484);
             this.txtGradeLevel.Name = "txtGradeLevel";
             this.txtGradeLevel.Size = new System.Drawing.Size(423, 62);
             this.txtGradeLevel.TabIndex = 2;
@@ -71,7 +74,7 @@
             // txtSection
             // 
             this.txtSection.Font = new System.Drawing.Font("Arial Rounded MT Bold", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSection.Location = new System.Drawing.Point(620, 440);
+            this.txtSection.Location = new System.Drawing.Point(620, 484);
             this.txtSection.Name = "txtSection";
             this.txtSection.Size = new System.Drawing.Size(710, 62);
             this.txtSection.TabIndex = 3;
@@ -79,7 +82,7 @@
             // txtStudentIdNo
             // 
             this.txtStudentIdNo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStudentIdNo.Location = new System.Drawing.Point(166, 535);
+            this.txtStudentIdNo.Location = new System.Drawing.Point(166, 552);
             this.txtStudentIdNo.Name = "txtStudentIdNo";
             this.txtStudentIdNo.Size = new System.Drawing.Size(854, 62);
             this.txtStudentIdNo.TabIndex = 4;
@@ -87,7 +90,7 @@
             // txtPoints
             // 
             this.txtPoints.Font = new System.Drawing.Font("Arial Rounded MT Bold", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPoints.Location = new System.Drawing.Point(166, 629);
+            this.txtPoints.Location = new System.Drawing.Point(166, 620);
             this.txtPoints.Name = "txtPoints";
             this.txtPoints.Size = new System.Drawing.Size(854, 62);
             this.txtPoints.TabIndex = 5;
@@ -99,13 +102,40 @@
             this.btnAddStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddStudent.Font = new System.Drawing.Font("Arial Rounded MT Bold", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddStudent.ForeColor = System.Drawing.Color.LimeGreen;
-            this.btnAddStudent.Location = new System.Drawing.Point(605, 736);
+            this.btnAddStudent.Location = new System.Drawing.Point(620, 791);
             this.btnAddStudent.Name = "btnAddStudent";
             this.btnAddStudent.Size = new System.Drawing.Size(424, 62);
             this.btnAddStudent.TabIndex = 6;
             this.btnAddStudent.Text = "ADD STUDENT";
             this.btnAddStudent.UseVisualStyleBackColor = false;
             this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
+            // 
+            // txtrfidNumber
+            // 
+            this.txtrfidNumber.Font = new System.Drawing.Font("Arial Rounded MT Bold", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtrfidNumber.Location = new System.Drawing.Point(166, 348);
+            this.txtrfidNumber.Name = "txtrfidNumber";
+            this.txtrfidNumber.Size = new System.Drawing.Size(1164, 62);
+            this.txtrfidNumber.TabIndex = 7;
+            this.txtrfidNumber.TextChanged += new System.EventHandler(this.txtrfidNumber_TextChanged);
+            // 
+            // txtWeight
+            // 
+            this.txtWeight.Font = new System.Drawing.Font("Arial Rounded MT Bold", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWeight.Location = new System.Drawing.Point(166, 700);
+            this.txtWeight.Name = "txtWeight";
+            this.txtWeight.ReadOnly = true;
+            this.txtWeight.Size = new System.Drawing.Size(401, 62);
+            this.txtWeight.TabIndex = 9;
+            // 
+            // txtTotalPoints
+            // 
+            this.txtTotalPoints.Font = new System.Drawing.Font("Arial Rounded MT Bold", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalPoints.Location = new System.Drawing.Point(619, 700);
+            this.txtTotalPoints.Name = "txtTotalPoints";
+            this.txtTotalPoints.ReadOnly = true;
+            this.txtTotalPoints.Size = new System.Drawing.Size(401, 62);
+            this.txtTotalPoints.TabIndex = 10;
             // 
             // MainForm
             // 
@@ -114,6 +144,9 @@
             this.BackgroundImage = global::student_points.Properties.Resources.bg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1449, 944);
+            this.Controls.Add(this.txtTotalPoints);
+            this.Controls.Add(this.txtWeight);
+            this.Controls.Add(this.txtrfidNumber);
             this.Controls.Add(this.btnAddStudent);
             this.Controls.Add(this.txtPoints);
             this.Controls.Add(this.txtStudentIdNo);
@@ -141,6 +174,9 @@
         private System.Windows.Forms.TextBox txtStudentIdNo;
         private System.Windows.Forms.TextBox txtPoints;
         private System.Windows.Forms.Button btnAddStudent;
+        private System.Windows.Forms.TextBox txtrfidNumber;
+        private System.Windows.Forms.TextBox txtWeight;
+        private System.Windows.Forms.TextBox txtTotalPoints;
     }
 }
 

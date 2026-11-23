@@ -10,5 +10,6 @@ namespace student_points
     {
         public static string DbConnString { get; set; } = "Host=localhost;Username=postgres;Password=postgres1234;Database=student_points;";
         public static int SelectedStudentId { get; set; }
+        public static int LatestScannedStudentId { get; set; }
     }
 }
