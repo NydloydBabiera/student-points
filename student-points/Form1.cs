@@ -19,6 +19,7 @@ namespace student_points
     {
         private const string ArduinoPortName = "COM11";
         private const int ArduinoBaudRate = 115200;
+        private const string ArduinoServoCommand = "1";
 
         private readonly DBPostgres db = new DBPostgres(GlobalVariables.DbConnString);
         private readonly SerialPort arduinoPort = new SerialPort(ArduinoPortName, ArduinoBaudRate)
@@ -110,6 +111,36 @@ namespace student_points
             return decimal.TryParse(value, NumberStyles.Number, CultureInfo.InvariantCulture, out weightInGrams);
         }
 
+        private bool SendServoCommand(out string errorMessage)
+        {
+            errorMessage = string.Empty;
+            if (!arduinoPort.IsOpen)
+            {
+                errorMessage = "The Arduino serial port is not open.";
+                return false;
+            }
+
+            try
+            {
+                arduinoPort.WriteLine(ArduinoServoCommand);
+                return true;
+            }
+            catch (IOException ex)
+            {
+                errorMessage = ex.Message;
+            }
+            catch (InvalidOperationException ex)
+            {
+                errorMessage = ex.Message;
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                errorMessage = ex.Message;
+            }
+
+            return false;
+        }
+
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             arduinoPort.DataReceived -= ArduinoPort_DataReceived;
@@ -183,7 +214,12 @@ namespace student_points
                     { "points", totalPts }
                 });
 
-                MessageBox.Show("Student added successfully!");
+                bool servoCommandSent = SendServoCommand(out string servoError);
+                string resultMessage = servoCommandSent
+                    ? "Student added successfully!"
+                    : "Student added successfully, but the servo command could not be sent: " + servoError;
+                MessageBox.Show(resultMessage, "Student Points", MessageBoxButtons.OK,
+                    servoCommandSent ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
                 return;
             }
 
